@@ -2,11 +2,19 @@ const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
 
-const base_name = 'example.txt';
+fs.readdir('./', (err, files) => {
+  if (err) {
+    console.error('Error reading directory:', err);
+    return;
+  }
+  console.log('Directory contents:', files);
+});
 
-const p = path.join(__dirname, base_name);
-fs.existsSync(p);
-fs.readFileSync(p, 'utf-8');
+// const base_name = 'example.txt';
+
+// const p = path.join(__dirname, base_name);
+// fs.existsSync(p);
+// fs.readFileSync(p, 'utf-8');
 // // List directory contents
 // fs.readdir('./', (err, files) => {
 //   if (err) {
