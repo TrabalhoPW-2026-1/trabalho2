@@ -16,7 +16,10 @@
 // export default server;
 
 
-const strHelper = require('./utils/strings')
-let icomp = "Instituto de Computação";
-console.log(strHelper.upper(icomp));
-console.log(strHelper.lower(icomp));
+// const strHelper = require('./utils/strings')
+// let icomp = "Instituto de Computação";
+// console.log(strHelper.upper(icomp));
+// console.log(strHelper.lower(icomp));
+
+console.log(process.cwd())
+console.log(__dirname)
