@@ -2,7 +2,7 @@ const { log } = require('console');
 const fs = require('fs');
 const path = require('path');
 
-fs.readdir('./', (err, files) => {
+fs.readdir(__dirname, (err, files) => {
   if (err) {
     console.error('Error reading directory:', err);
     return;
@@ -16,7 +16,7 @@ fs.readdir('./', (err, files) => {
 // fs.existsSync(p);
 // fs.readFileSync(p, 'utf-8');
 // // List directory contents
-// fs.readdir('./', (err, files) => {
+// fs.readdir(__dirname, (err, files) => {
 //   if (err) {
 //     console.error('Error reading directory:', err);
 //     return;
@@ -39,7 +39,7 @@ fs.readdir('./', (err, files) => {
 // log(2)
 
 // // List directory contents
-// fs.readdir('./', (err, files) => {
+// fs.readdir(__dirname, (err, files) => {
 //   if (err) {
 //     console.error('Error reading directory:', err);
 //     return;

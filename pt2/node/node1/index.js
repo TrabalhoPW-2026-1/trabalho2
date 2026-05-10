@@ -1,27 +1,27 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+
 const dotenv = require('dotenv');
+
 const util = require('./util');
 
 dotenv.config({ path: `.env.${process.env.NODE_ENV}`, quiet: true });
 
 const PORT = process.env.PORT || 3000;
-const dirPath = [process.argv[2] || '.'];
+
 
 function main() {
     const server = http.createServer((req, res) => {
         res.writeHead(200, { 'Content-Type': 'text/html' });
 
-        res.write(`req.url: ${req.url}<br>\n`);
+        const url = new URL(req.url, `http://localhost:${PORT}`);
 
-
-        if (dirPath.length > 0) {
-            res.write('<a href="/">Voltar</a><br>\n');
-            // res.write('dirPath: ' + curPath + '<br>');
+        if (url.pathname !== '/') {
+            res.write(util.createLink(path.dirname(url.pathname), 'Voltar'));
         }
 
-        const curPath = path.join(...dirPath, req.url);
+        const curPath = url.pathname.slice(1) || '.';
 
         fs.readdir(curPath, (err, files) => {
             if (err) {
@@ -34,7 +34,7 @@ function main() {
             }
 
             files.forEach(file => {
-                res.write(util.createLink(file));
+                res.write(util.createLink(path.join(curPath, file), file));
             });
 
             res.end();
@@ -45,6 +45,7 @@ function main() {
         console.log(`Server is running on http://localhost:${PORT}`);
     });
 }
+
 
 if (require.main === module) {
     main();

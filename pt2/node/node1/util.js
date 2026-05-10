@@ -1,3 +1,5 @@
-export function createLink(filename) {
-    return `<a href="/${filename}">${filename}</a><br>\n`;
+function createLink(path, val='') {
+    return `<a href="${path}">${val || path}</a><br>\n`;
 }
+
+module.exports = { createLink };
