@@ -5,12 +5,14 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
-    "start": "tsc && node src/index.js"
+    "start": "tsc; node ./build/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^25.8.0",
+    "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
     "tsx": "^4.22.0",
     "typescript": "^6.0.3"
