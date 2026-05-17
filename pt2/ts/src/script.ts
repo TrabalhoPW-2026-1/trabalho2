@@ -1,22 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const button = document.getElementById("button") as HTMLButtonElement;
-  const raio = document.getElementById("raio") as HTMLInputElement;
-  const area = document.getElementById("area") as HTMLInputElement;
-  const perimetro = document.getElementById("perimetro") as HTMLInputElement;
-
-  if (!button || !raio || !area || !perimetro) {
-    console.error("Elementos necessários não encontrados no DOM.");
+  const button = document.querySelector("button") as HTMLButtonElement;
+  const raioInput = document.querySelector("#raio") as HTMLInputElement;
+  const area = document.querySelector("#area") as HTMLInputElement;
+  const perimetro = document.querySelector("#perimetro") as HTMLInputElement;
+  if (!button || !raioInput || !area || !perimetro) {
+    alert("Elementos necessários não encontrados no DOM.");
     return;
   }
 
   button.addEventListener("click", () => {
-    const r = parseFloat(raio.value || "0");
-    if (isNaN(r) || r < 0) {
+    alert("Botão clicado. Calculando área e perímetro...");
+    if (!raioInput.value) {
+      alert("Campo de raio está vazio. Por favor, insira um valor.");
       return;
     }
-    const areaVal = Math.PI * r * r;
-    const perimetroVal = 2 * Math.PI * r;
-    area.value = areaVal.toFixed(2);
-    perimetro.value = perimetroVal.toFixed(2);
+    const r = parseFloat(raioInput.value);
+    if (isNaN(r) || r < 0) {
+      alert("Valor de raio inválido. Por favor, insira um número positivo.");
+      return;
+    }
+    const a = Math.PI * r * r;
+    const p = 2 * Math.PI * r;
+    area.value = a.toFixed(2);
+    perimetro.value = p.toFixed(2);
+    alert(`Raio: ${r}, Área: ${a.toFixed(2)}, Perímetro: ${p.toFixed(2)}`);
   })
 });

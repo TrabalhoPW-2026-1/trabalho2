@@ -2,19 +2,16 @@
   "name": "ts",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
-  "main": "index.ts",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "tsc; node ./build/index.js"
+    "test": "tsc && node dist/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^25.8.0",
-    "nodemon": "^3.1.14",
-    "ts-node": "^10.9.2",
-    "tsx": "^4.22.0",
     "typescript": "^6.0.3"
-  }
+  },
+  "type": "module"
 }
