@@ -2,15 +2,25 @@ import http from "http";
 import fs from "fs";
 import path from "path";
 
-// const __dirname = process.cwd();
-// console.log(__dirname);
-const html = path.join(process.cwd(), "index.html");
-console.log(html);
+const mimeTypes: Record<string, string> = {
+  ".html": "text/html",
+  ".js": "application/javascript",
+  ".css": "text/css",
+};
 
 const server = http.createServer((req, res) => {
-  fs.readFile(html, (err, data) => {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    console.log(data.toString());
+  const url = req.url === "/" ? "/index.html" : (req.url ?? "/index.html");
+  const filePath = path.join(process.cwd(), url);
+  const ext = path.extname(filePath);
+  const contentType = mimeTypes[ext] ?? "application/octet-stream";
+
+  fs.readFile(filePath, (err, data) => {
+    if (err) {
+      res.writeHead(404);
+      res.end("Not found");
+      return;
+    }
+    res.writeHead(200, { "Content-Type": contentType });
     res.end(data);
   });
 });
