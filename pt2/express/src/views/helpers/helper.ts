@@ -13,7 +13,7 @@ function listProfessores(profs: Professor[]): string {
     const ul = (
         profs
         .map(prof => `<li>${prof.name} - ${prof.subject}</li>`)
-        .join('')
+        .join("")
     );
     return `<ul>${ul}</ul>`;
 }
@@ -23,7 +23,7 @@ function listTechnologies(technologies: Technology[]): string {
         technologies
         .filter(tech => tech.poweredByNodejs)
         .map(tech => `<li>${tech.name} - ${tech.type}</li>`)
-        .join('')
+        .join("")
     );
     return `<ul>${ul}</ul>`;
 }

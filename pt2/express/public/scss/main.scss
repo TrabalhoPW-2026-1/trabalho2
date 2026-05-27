@@ -1,0 +1,7 @@
+$color: red;
+$space: 2px;
+
+h1, h2 {
+    color: $color;
+    margin-top: 2 * $space;
+}

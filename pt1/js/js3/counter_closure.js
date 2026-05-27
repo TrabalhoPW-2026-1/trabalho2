@@ -30,9 +30,9 @@ const increment = make_counter();
 
 console.log(counter()); // 2
 console.log(counter()); // 4
-console.log('Call ' + increment()); // 1
+console.log("Call " + increment()); // 1
 console.log(counter()); // 6
-console.log('Call ' + increment()); // 2
-console.log('Call ' + increment()); // 3
-console.log('Call ' + increment()); // 4
+console.log("Call " + increment()); // 2
+console.log("Call " + increment()); // 3
+console.log("Call " + increment()); // 4
 console.log(counter()); // 8

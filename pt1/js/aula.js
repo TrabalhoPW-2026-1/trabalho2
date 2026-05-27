@@ -9,8 +9,8 @@ class Unidade {
 	}
 }
 
-const icomp = new Unidade('IComp')
+const icomp = new Unidade("IComp")
 icomp.fundacao = 2009
 icomp.doscentes = 35
-// icomp.nome = 'Instituto de Computação'
+// icomp.nome = "Instituto de Computação"
 console.log(icomp)

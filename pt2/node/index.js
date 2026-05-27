@@ -1,37 +1,37 @@
-// // const http = require('http');
-// import { createServer } from 'http';
+// // const http = require("http");
+// import { createServer } from "http";
 
 // const server = createServer((req, res) => {
-//   res.writeHead(200, { 'Content-Type': 'text/plain' });
+//   res.writeHead(200, { "Content-Type": "text/plain" });
 // //   res.writeHead(200, { c });
-// //   res.write('Hello from Module 2!');
+// //   res.write("Hello from Module 2!");
 // //   res.end();
-//   res.end('Hello from Module 2!');
+//   res.end("Hello from Module 2!");
 // });
 
 // // server.listen(5000)
 // server.listen(5000, () => {
-//   console.log('Server is running on http://localhost:5000');
+//   console.log("Server is running on http://localhost:5000");
 // });
 // export default server;
 
-// require('./fs');
-// console.log('0', icomp);
+// require("./fs");
+// console.log("0", icomp);
 
-// // global.icomp = 'Instituto de Computação';
-// const strHelper = require(__dirname + '/utils/strings')
+// // global.icomp = "Instituto de Computação";
+// const strHelper = require(__dirname + "/utils/strings")
 // // const icomp = "Instituto de Computação";
 // // console.log(strHelper.upper(icomp));
 // // console.log(strHelper.lower(icomp));
-// console.log('1', global.icomp);
+// console.log("1", global.icomp);
 
 // (() => {
-//     console.log('2', global.icomp);
+//     console.log("2", global.icomp);
 // })();
 
 // (() => {
 //     (() => {
-//         console.log('3', global.icomp);
+//         console.log("3", global.icomp);
 //     })();
 // })();
 

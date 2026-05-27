@@ -1,4 +1,4 @@
-function createLink(path, val='') {
+function createLink(path, val="") {
     return `<a href="${path}">${val || path}</a><br>\n`;
 }
 

@@ -10,7 +10,7 @@
 
 
 
-// const fs = require('fs');
+// const fs = require("fs");
 // function readFile (filename) {
 //    return new Promise(function (resolve, reject) {
 //       fs.readFile(filename, function(error, data) {
@@ -18,10 +18,10 @@
 //       });
 //    });
 // }
-// readFile('1.txt')
+// readFile("1.txt")
 // .then(function(data1) {
 //    console.log(data1);
-//    return readFile('2.txt')
+//    return readFile("2.txt")
 // })
 // .then(function(data2) {
 //    console.log(data2);
@@ -29,14 +29,14 @@
 
 
 
-// const fs = require('fs');
+// const fs = require("fs");
 // const p1 = new Promise(function (resolve, reject) {
-//    fs.readFile('./1.txt', function(error, data) {
+//    fs.readFile("./1.txt", function(error, data) {
 //        resolve(parseInt(data));
 //    });
 // })
 // const p2 = new Promise(function (resolve, reject) {
-//    fs.readFile('./2.txt', function(error, data) {
+//    fs.readFile("./2.txt", function(error, data) {
 //        resolve(parseInt(data));
 //    });
 // })
@@ -46,10 +46,10 @@
 
 
 
-const request = require('request');
+const request = require("request");
 
 function getUrl(url) {
-    return promise = new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         request(url, (err, res, body) => {
             if (err) {
                 reject(err);
@@ -60,6 +60,6 @@ function getUrl(url) {
     });
 }
 
-getUrl('http://google.com')
+getUrl("http://google.com")
     .then((body) => { console.log(body); })
     .catch((err) => { console.log(err); });

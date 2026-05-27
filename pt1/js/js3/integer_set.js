@@ -54,11 +54,11 @@ class IntegerSet {
     toStr() {
         const string = (
             this.arr
-            .map((v, i) => v ? i : null)
-            .filter(v => v !== null)
-            .join(', ')
+                .map((v, i) => v ? i : null)
+                .filter(v => v !== null)
+                .join(", ")
         );
-        return string ? `{ ${string} }` : '{}';
+        return string ? `{ ${string} }` : "{}";
     }
 }
 
