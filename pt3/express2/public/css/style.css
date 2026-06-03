@@ -1,0 +1,9 @@
+:root {
+    --primary: red;
+    --space: 2px;
+}
+
+h2 {
+    color: var(--primary);
+    margin-top: calc(2 * var(--space));
+}
