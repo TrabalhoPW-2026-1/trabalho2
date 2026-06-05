@@ -1,4 +1,4 @@
-# ordem do historico (mais antigo em cima)
+# ordem do historico (mais novo em cima)
 
 npx prisma migrate dev
 
