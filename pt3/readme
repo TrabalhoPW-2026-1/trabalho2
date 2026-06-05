@@ -1,3 +1,5 @@
+# ordem do historico (mais antigo em cima)
+
 npx prisma migrate dev
 
 mysql -uroot -psenhasegura -h127.0.0.1 -P3306 game
