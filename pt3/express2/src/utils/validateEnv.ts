@@ -9,5 +9,6 @@ export default function validateEnv() {
         NODE_ENV: str({ choices: ["development", "production", "test"], default: "development" }),
         LOGGER_TYPE: str({ choices: ["advanced", "simple"], default: "simple" }),
         LOGGER_OUTPUT: str({ default: "./debug/app.log" }),
+        DATABASE_URL: str({ default: "mysql://app:senhasegura@127.0.0.1:3307/game" }),
     });
 }

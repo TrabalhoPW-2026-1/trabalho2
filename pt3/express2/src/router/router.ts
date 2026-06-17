@@ -23,6 +23,6 @@ router.get("/major", majorController.index);
 router.all("/major/create", majorController.create);
 router.get("/major/read/:id", majorController.read);
 router.all("/major/update/:id", majorController.update);
-router.post("/major/remove/:id", majorController.remove);
+router.post("/major/delete/:id", majorController.delete_);
 
 export default router;
