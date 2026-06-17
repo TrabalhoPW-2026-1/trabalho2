@@ -1,0 +1,15 @@
+<div class="container mt-4" style="max-width: 600px">
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0">{{major.name}}</h5>
+      <span class="badge bg-secondary">{{major.code}}</span>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{major.description}}</p>
+    </div>
+    <div class="card-footer d-flex gap-2">
+      <a href="/major/update/{{major.id}}" class="btn btn-warning btn-sm">Editar</a>
+      <a href="/major" class="btn btn-secondary btn-sm">Voltar</a>
+    </div>
+  </div>
+</div>

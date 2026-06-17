@@ -1,0 +1,21 @@
+<div class="container mt-4" style="max-width: 600px">
+  <h2 class="mb-4">Editar Curso</h2>
+  <form action="/major/update/{{major.id}}" method="post">
+    <div class="mb-3">
+      <label for="code" class="form-label">Código</label>
+      <input type="text" class="form-control" id="code" name="code" value="{{major.code}}" required>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="name" name="name" value="{{major.name}}" required>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Descrição</label>
+      <textarea class="form-control" id="description" name="description" rows="3">{{major.description}}</textarea>
+    </div>
+    <div class="d-flex gap-2">
+      <button type="submit" class="btn btn-warning">Atualizar</button>
+      <a href="/major" class="btn btn-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>
