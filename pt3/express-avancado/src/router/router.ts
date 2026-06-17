@@ -25,4 +25,6 @@ router.get("/major/read/:id", majorController.read);
 router.all("/major/update/:id", majorController.update);
 router.post("/major/delete/:id", majorController.delete_);
 
+router.get("/cookie", mainController.testCookie);
+
 export default router;

@@ -10,5 +10,6 @@ export default function validateEnv() {
         LOGGER_TYPE: str({ choices: ["advanced", "simple"], default: "simple" }),
         LOGGER_OUTPUT: str({ default: "./debug/app.log" }),
         DATABASE_URL: str({ default: "mysql://app:senhasegura@127.0.0.1:3307/game" }),
+        SECRET: str({ default: "sjhvcjdbvefoidp2e1sqxayuigxjzvhdnfem3rkel2pw1sq098" }),
     });
 }

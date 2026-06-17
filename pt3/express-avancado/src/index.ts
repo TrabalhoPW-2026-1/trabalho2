@@ -3,6 +3,9 @@ import path from "path";
 import express from "express";
 import morgan from "morgan";
 import { engine } from "express-handlebars";
+import cookieParser from "cookie-parser";
+import session from "express-session";
+import { v4 as uuidv4 } from "uuid";
 
 import validateEnv from "./utils/validateEnv.ts";
 import logger from "./middlewares/logger.ts";
@@ -28,6 +31,23 @@ app.set("views", path.join(process.cwd(), "src", "views"));
 app.use(logger(env.LOGGER_TYPE, env.LOGGER_OUTPUT));
 
 app.use(express.urlencoded({ extended: false }));
+
+app.use(cookieParser());
+
+app.use(
+    session({
+        name: "sid",
+        genid: () => uuidv4(),
+        secret: env.SECRET,
+        resave: false,
+        saveUninitialized: false,
+        rolling: true,
+        cookie: {
+            httpOnly: true,
+            maxAge: 7_200_000  // 2h
+        },
+    }),
+);
 
 app.use(router);
 

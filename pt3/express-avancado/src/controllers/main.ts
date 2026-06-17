@@ -9,6 +9,18 @@ const home = (req: Request, res: Response) => {
     res.send("Home Page");
 };
 
+const testCookie = (req: Request, res: Response) => {
+    if ("name-user" in req.cookies) {
+        res.send(`O valor do cookie name-user é ${req.cookies["name-user"]}`)
+    } else {
+        res.cookie("name-user", "Cadunandro", {
+            httpOnly: true,  // nao da pra ver no console (JS)
+            maxAge: 360_000  // ms = 6 min
+        });
+        res.send("Cookie criado!")
+    }
+};
+
 const about = (req: Request, res: Response) => {
     res.send("About Page");
 };
@@ -100,4 +112,5 @@ export default {
     hb2,
     hb3,
     hb4,
+    testCookie,
 };
