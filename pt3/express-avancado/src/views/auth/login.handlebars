@@ -1,0 +1,20 @@
+<div class="container mt-5" style="max-width: 500px">
+  <h2 class="mb-4">Login</h2>
+  {{#if error}}
+  <div class="alert alert-danger">{{error}}</div>
+  {{/if}}
+  <form action="/login" method="post">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Senha</label>
+      <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Entrar</button>
+    <div class="text-center mt-3">
+      <a href="/signup">Não tem conta? Cadastre-se</a>
+    </div>
+  </form>
+</div>

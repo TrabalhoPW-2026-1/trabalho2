@@ -28,7 +28,7 @@ router.post("/major/delete/:id", majorController.delete_);
 
 router.get("/cookie", mainController.testCookie);
 router.all("/signup", authController.signup);
-router.get("/login", authController.login);
-router.get("/logout", authController.login);
+router.all("/login", authController.login);
+router.get("/logout", authController.logout);
 
 export default router;
