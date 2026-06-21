@@ -1,0 +1,34 @@
+services:
+  db:
+    image: mariadb:latest
+    container_name: game-app-db
+    networks:
+      - game-app-network
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: senhasegura
+      MYSQL_DATABASE: game
+    volumes:
+      - game-app-volume:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: game-app-phpmyadmin
+    networks:
+      - game-app-network
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: game-app-db
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: senhasegura
+    depends_on:
+      - db
+
+networks:
+  game-app-network:
+
+volumes:
+  game-app-volume:

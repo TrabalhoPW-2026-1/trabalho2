@@ -2,6 +2,7 @@ import { Router } from "express";
 
 import mainController from "../controllers/main.ts";
 import majorController from "../controllers/major.ts";
+import authController from "../controllers/auth.ts"
 
 const router = Router();
 
@@ -26,5 +27,8 @@ router.all("/major/update/:id", majorController.update);
 router.post("/major/delete/:id", majorController.delete_);
 
 router.get("/cookie", mainController.testCookie);
+router.all("/signup", authController.signup);
+router.get("/login", authController.login);
+router.get("/logout", authController.login);
 
 export default router;
