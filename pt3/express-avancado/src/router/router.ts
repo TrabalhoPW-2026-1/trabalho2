@@ -30,7 +30,7 @@ router.post("/major/delete/:id", majorController.delete_);
 router.get("/cookie", mainController.testCookie);
 router.all("/signup", authController.signup);
 router.all("/login", authController.login);
-router.get("/logout", authController.logout);
+router.post("/logout", authController.logout);
 
 router.get("/game/play", gameController.play)
 

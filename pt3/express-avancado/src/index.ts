@@ -51,6 +51,7 @@ app.use(
 
 app.use((req, res, next) => {
     res.locals.isLogged = !!req.session.userId
+    res.locals.userName = req.session.userName
     next()
 })
 
