@@ -1,21 +1,13 @@
-import { PrismaMariaDb } from "@prisma/adapter-mariadb";
+import prisma from "../utils/prismaClient.ts";
+// import { PrismaMariaDb } from "@prisma/adapter-mariadb";
 
-import { type Major, PrismaClient } from "../../generated/prisma/client.ts";
+import { type Major } from "../../generated/prisma/client.ts";
 import type { CreateMajorDTO, UpdateMajorDTO } from "../types/major.ts";
-import validateEnv from "../utils/validateEnv.ts";
+// import validateEnv from "../utils/validateEnv.ts";
 
-const env = validateEnv();
-// const dbUrl = new URL(env.DATABASE_URL);
-// const adapter = new PrismaMariaDb({
-//     host: dbUrl.hostname,
-//     port: Number(dbUrl.port),
-//     user: dbUrl.username,
-//     password: dbUrl.password,
-//     database: dbUrl.pathname.slice(1),
-//     allowPublicKeyRetrieval: true,
-// });
-const adapter = new PrismaMariaDb(env.DATABASE_URL!);
-const prisma = new PrismaClient({ adapter });
+// const env = validateEnv();
+// const adapter = new PrismaMariaDb(env.DATABASE_URL!);
+// const prisma = new PrismaClient({ adapter });
 
 function getAllMajors(): Promise<Major[]> {
     return prisma.major.findMany();

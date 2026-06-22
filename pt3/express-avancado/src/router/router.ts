@@ -3,6 +3,7 @@ import { Router } from "express";
 import mainController from "../controllers/main.ts";
 import majorController from "../controllers/major.ts";
 import authController from "../controllers/auth.ts"
+import gameController from "../controllers/game.ts"
 
 const router = Router();
 
@@ -30,5 +31,7 @@ router.get("/cookie", mainController.testCookie);
 router.all("/signup", authController.signup);
 router.all("/login", authController.login);
 router.get("/logout", authController.logout);
+
+router.get("/game/play", gameController.play)
 
 export default router;

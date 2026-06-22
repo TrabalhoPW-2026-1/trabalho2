@@ -49,6 +49,11 @@ app.use(
     }),
 );
 
+app.use((req, res, next) => {
+    res.locals.isLogged = !!req.session.userId
+    next()
+})
+
 app.use(router);
 
 app.use(express.static(pubDirPath));
