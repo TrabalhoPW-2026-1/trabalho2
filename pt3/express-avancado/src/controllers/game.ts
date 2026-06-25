@@ -4,6 +4,4 @@ const play = (req: Request, res: Response) => {
     res.render("game/play")
 }
 
-export default {
-    play
-}
+export default { play }

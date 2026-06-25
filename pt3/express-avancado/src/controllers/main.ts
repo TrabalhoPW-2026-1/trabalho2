@@ -3,21 +3,21 @@ import { LoremIpsum } from "lorem-ipsum";
 
 import type { Professor, Technology } from "../views/helpers/helper.ts";
 
-const loremIpsum = new LoremIpsum();;
+const loremIpsum = new LoremIpsum();
 
 const home = (req: Request, res: Response) => {
-    res.send("Home Page");
+    res.redirect("/game/play");
 };
 
 const testCookie = (req: Request, res: Response) => {
     if ("name-user" in req.cookies) {
-        res.send(`O valor do cookie name-user é ${req.cookies["name-user"]}`)
+        res.send(`O valor do cookie name-user é ${req.cookies["name-user"]}`);
     } else {
         res.cookie("name-user", "Cadunandro", {
-            httpOnly: true,  // nao da pra ver no console (JS)
-            maxAge: 360_000  // ms = 6 min
+            httpOnly: true, // impossibilita de ver no console (JS)
+            maxAge: 360_000, // ms = 6 min
         });
-        res.send("Cookie criado!")
+        res.send("Cookie criado!");
     }
 };
 
@@ -74,9 +74,18 @@ const hb2 = (req: Request, res: Response) => {
 
 const hb3 = (req: Request, res: Response) => {
     const profs: Professor[] = [
-        { name: "Alice", subject: "Math" },
-        { name: "Bob", subject: "History" },
-        { name: "Charlie", subject: "Science" }
+        {
+            name: "Alice",
+            subject: "Math",
+        },
+        {
+            name: "Bob",
+            subject: "History",
+        },
+        {
+            name: "Charlie",
+            subject: "Science",
+        },
     ];
     res.render("main/hb3", {
         profs,
@@ -85,13 +94,41 @@ const hb3 = (req: Request, res: Response) => {
 
 const hb4 = (req: Request, res: Response) => {
     const technologies: Technology[] = [
-        { name: "Express", type: "Framework", poweredByNodejs: true },
-        { name: "Laravel", type: "Framework", poweredByNodejs: false },
-        { name: "React", type: "Library", poweredByNodejs: true },
-        { name: "Handlebars", type: "Engine View", poweredByNodejs: true },
-        { name: "Django", type: "Framework", poweredByNodejs: false },
-        { name: "Docker", type: "Virtualization", poweredByNodejs: false },
-        { name: "Sequelize", type: "ORM tool", poweredByNodejs: true },
+        {
+            name: "Express",
+            type: "Framework",
+            poweredByNodejs: true,
+        },
+        {
+            name: "Laravel",
+            type: "Framework",
+            poweredByNodejs: false,
+        },
+        {
+            name: "React",
+            type: "Library",
+            poweredByNodejs: true,
+        },
+        {
+            name: "Handlebars",
+            type: "Engine View",
+            poweredByNodejs: true,
+        },
+        {
+            name: "Django",
+            type: "Framework",
+            poweredByNodejs: false,
+        },
+        {
+            name: "Docker",
+            type: "Virtualization",
+            poweredByNodejs: false,
+        },
+        {
+            name: "Sequelize",
+            type: "ORM tool",
+            poweredByNodejs: true,
+        },
     ];
     res.render("main/hb4", {
         technologies,

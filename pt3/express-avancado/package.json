@@ -6,7 +6,7 @@
   "main": "index.ts",
   "scripts": {
     "sass": "sass public/scss:public/css --watch",
-    "start": "nodemon --exec ts-node src/index.ts",
+    "start": "docker compose up -d && nodemon src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

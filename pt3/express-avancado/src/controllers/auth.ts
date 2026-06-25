@@ -14,7 +14,10 @@ const signup = async (req: Request, res: Response) => {
             res.redirect("/login")
         } catch {
             const majors = await majorService.getAllMajors()
-            res.render("auth/signup", { majors, error: "Email já cadastrado ou dados inválidos." })
+            res.render("auth/signup", {
+                majors,
+                error: "Email já cadastrado ou dados inválidos.",
+            })
         }
     }
 }
@@ -41,4 +44,8 @@ const logout = (req: Request, res: Response) => {
     })
 }
 
-export default { signup, login, logout }
+export default {
+    signup,
+    login,
+    logout,
+}

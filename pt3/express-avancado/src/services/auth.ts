@@ -17,14 +17,18 @@ async function signup(data: SignUpDTO): Promise<User> {
     return prisma.user.create({ data: { ...data, hash } })
 }
 
+// Dummy hash prevents timing attacks: attacker can't tell if user exists by response time
+const DUMMY_HASH =
+    "$2a$10$abcdefghijklmnopqrstuuABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+
 async function login(data: LogInDTO): Promise<User | null> {
     const user = await prisma.user.findUnique({ where: { email: data.email } })
-    if (!user) return null
-    const match = await bcrypt.compare(data.password, user.password)
-    return match ? user : null
+    const hash = user ? user.password : DUMMY_HASH
+    const match = await bcrypt.compare(data.password, hash)
+    return user && match ? user : null
 }
 
 export default {
     signup,
-    login
+    login,
 }
