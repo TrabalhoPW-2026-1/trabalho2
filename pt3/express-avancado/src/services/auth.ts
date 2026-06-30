@@ -18,8 +18,7 @@ async function signup(data: SignUpDTO): Promise<User> {
 }
 
 // Dummy hash prevents timing attacks: attacker can't tell if user exists by response time
-const DUMMY_HASH =
-    "$2a$10$abcdefghijklmnopqrstuuABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+const DUMMY_HASH = "$2a$10$abcdefghijklmnopqrstuuABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
 
 async function login(data: LogInDTO): Promise<User | null> {
     const user = await prisma.user.findUnique({ where: { email: data.email } })
