@@ -16,14 +16,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/major">Cursos</a>
+                        <a class="nav-link" href="/about">Sobre</a>
+                    </li>
+                    {{#if isLogged}}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/game/play">Jogar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/ranking">Ranking</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about">Sobre</a>
+                        <a class="nav-link" href="/major">Cursos</a>
                     </li>
+                    {{/if}}
                 </ul>
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     {{#if isLogged}}
