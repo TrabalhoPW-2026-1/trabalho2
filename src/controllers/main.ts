@@ -22,7 +22,9 @@ const testCookie = (req: Request, res: Response) => {
 };
 
 const about = (req: Request, res: Response) => {
-    res.send("About Page");
+    res.render("main/about", {
+        title: "Sobre o Jogo"
+    });
 };
 
 const api = (req: Request, res: Response) => {
