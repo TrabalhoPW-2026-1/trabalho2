@@ -1,0 +1,17 @@
+<div class="container mt-4" style="max-width: 600px">
+  <h2 class="mb-4">Editar Partida</h2>
+  <form action="/game-session/update/{{gameSession.id}}" method="post">
+    <div class="mb-3">
+      <label for="userId" class="form-label">ID do Usuário</label>
+      <input type="text" class="form-control" id="userId" name="userId" value="{{gameSession.userId}}" required>
+    </div>
+    <div class="mb-3">
+      <label for="score" class="form-label">Pontuação</label>
+      <input type="number" class="form-control" id="score" name="score" value="{{gameSession.score}}" min="0" required>
+    </div>
+    <div class="d-flex gap-2">
+      <button type="submit" class="btn btn-warning">Atualizar</button>
+      <a href="/game-session" class="btn btn-secondary">Cancelar</a>
+    </div>
+  </form>
+</div>
