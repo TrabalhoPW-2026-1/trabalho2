@@ -37,6 +37,12 @@ function deleteGameSession(id: string) {
     return prisma.gameSession.delete({ where: { id } });
 }
 
+function deleteGameSessionsForUserId(userId: string) {
+    return prisma.gameSession.deleteMany({
+        where: { userId }
+    });
+}
+
 export default {
     getAllGameSessions,
     getGameSessionsFromUserId,
@@ -45,4 +51,5 @@ export default {
     createGameSession,
     updateGameSession,
     deleteGameSession,
+    deleteGameSessionsForUserId
 }
