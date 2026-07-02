@@ -2,6 +2,7 @@ import type { Request, Response } from "express";
 import { LoremIpsum } from "lorem-ipsum";
 
 import type { Professor, Technology } from "../views/helpers/helper.ts";
+import gameSession from "../services/game-session.ts";
 
 const loremIpsum = new LoremIpsum();
 
@@ -135,8 +136,14 @@ const hb4 = (req: Request, res: Response) => {
     });
 };
 
+const ranking = async (req: Request, res: Response) => {
+    const ranking = await gameSession.getRanking(10);
+    res.render("ranking", { ranking });
+};
+
 export default {
     home,
+    ranking,
     about,
     api,
     user,
