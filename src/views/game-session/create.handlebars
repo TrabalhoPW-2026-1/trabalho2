@@ -2,8 +2,13 @@
   <h2 class="mb-4">Nova Partida</h2>
   <form action="/game-session/create" method="post">
     <div class="mb-3">
-      <label for="userId" class="form-label">ID do Usuário</label>
-      <input type="text" class="form-control" id="userId" name="userId" required>
+      <label for="userId" class="form-label">Usuário</label>
+      <select class="form-select" id="userId" name="userId" required>
+        <option value="" disabled selected>Selecione um usuário</option>
+        {{#each users}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+      </select>
     </div>
     <div class="mb-3">
       <label for="score" class="form-label">Pontuação</label>

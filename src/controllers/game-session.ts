@@ -2,6 +2,7 @@ import type { Request, Response } from "express";
 
 import type { CreateGameSessionDTO, UpdateGameSessionDTO } from "../types/game-session.ts";
 import gameSession from "../services/game-session.ts";
+import userService from "../services/user.ts";
 
 const index = async (req: Request, res: Response) => {
     const gameSessions = await gameSession.getAllGameSessions();
@@ -10,7 +11,8 @@ const index = async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
     if (req.method === "GET") {
-        res.render("game-session/create");
+        const users = await userService.getAllUsers();
+        res.render("game-session/create", { users });
     } else if (req.method === "POST") {
         const gameSessionData: CreateGameSessionDTO = { ...req.body, score: Number(req.body.score) };
         try {
@@ -42,7 +44,8 @@ const update = async (req: Request, res: Response) => {
         try {
             const gameSessionData = await gameSession.readGameSession(id);
             if (gameSessionData) {
-                res.render("game-session/update", { gameSession: gameSessionData });
+                const users = await userService.getAllUsers();
+                res.render("game-session/update", { gameSession: gameSessionData, users });
             } else {
                 res.status(404).send({ message: "Game session not found" });
             }

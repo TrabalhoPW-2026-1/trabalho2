@@ -21,6 +21,7 @@ app.engine("handlebars", engine({
     helpers: {
         listProfessores,
         listTechnologies,
+        eq: (a: unknown, b: unknown) => a === b,
     }
 }));
 
