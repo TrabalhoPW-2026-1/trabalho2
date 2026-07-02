@@ -30,6 +30,9 @@ router.post("/major/delete/:id", majorController.delete_);
 
 router.get("/game-session", gameSessionController.index);
 router.all("/game-session/create", gameSessionController.create);
+router.get("/game-session/read/:id", gameSessionController.read);
+router.all("/game-session/update/:id", gameSessionController.update);
+router.post("/game-session/delete/:id", gameSessionController.delete_);
 
 router.get("/cookie", mainController.testCookie);
 router.all("/signup", authController.signup);
