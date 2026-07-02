@@ -1,0 +1,25 @@
+<div class="container mt-4" style="max-width: 600px">
+  <h2 class="mb-4">Ranking</h2>
+  <table class="table table-hover table-bordered">
+    <thead class="table-dark">
+      <tr>
+        <th>#</th>
+        <th>Usuário</th>
+        <th>Pontuação</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each ranking}}
+      <tr>
+        <td>{{this.position}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.score}}</td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="3" class="text-center">Nenhuma pontuação registrada.</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
