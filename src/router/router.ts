@@ -3,6 +3,7 @@ import { Router } from "express";
 import mainController from "../controllers/main.ts";
 import majorController from "../controllers/major.ts";
 import authController from "../controllers/auth.ts"
+import gameSessionController from "../controllers/game-session.ts"
 import gameController from "../controllers/game.ts"
 
 const router = Router();
@@ -26,6 +27,9 @@ router.all("/major/create", majorController.create);
 router.get("/major/read/:id", majorController.read);
 router.all("/major/update/:id", majorController.update);
 router.post("/major/delete/:id", majorController.delete_);
+
+router.get("/game-session", gameSessionController.index);
+router.all("/game-session/create", gameSessionController.create);
 
 router.get("/cookie", mainController.testCookie);
 router.all("/signup", authController.signup);
