@@ -14,14 +14,14 @@
     <tbody>
       {{#each gameSessions}}
       <tr>
-        <td>{{this.userId}}</td>
+        <td>{{this.user.name}}</td>
         <td>{{this.score}}</td>
         <td>
           <a href="/game-session/read/{{this.id}}" class="btn btn-sm btn-info">Ver</a>
           <a href="/game-session/update/{{this.id}}" class="btn btn-sm btn-warning">Editar</a>
           <button type="button" class="btn btn-sm btn-danger btn-delete"
             data-bs-toggle="modal" data-bs-target="#deleteModal"
-            data-id="{{this.id}}" data-name="{{this.userId}}">Excluir</button>
+            data-id="{{this.id}}" data-name="{{this.user.name}}">Excluir</button>
         </td>
       </tr>
       {{/each}}

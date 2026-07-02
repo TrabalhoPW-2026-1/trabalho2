@@ -3,7 +3,7 @@ import type {CreateGameSessionDTO, UpdateGameSessionDTO} from "../types/game-ses
 
 
 function getAllGameSessions() {
-  return prisma.gameSession.findMany();
+  return prisma.gameSession.findMany({ include: { user: true } });
 }
 
 function getGameSessionsFromUserId(userId: string) {
