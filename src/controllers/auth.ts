@@ -8,14 +8,28 @@ const signup = async (req: Request, res: Response) => {
         const majors = await majorService.getAllMajors()
         res.render("auth/signup", { majors })
     } else if (req.method === "POST") {
-        const data = req.body
+        const { name, email, password, confirmPassword, majorId } = req.body
+        if (password !== confirmPassword) {
+            const majors = await majorService.getAllMajors()
+            res.render("auth/signup", {
+                majors,
+                name,
+                email,
+                majorId,
+                error: "As senhas não coincidem.",
+            })
+            return
+        }
         try {
-            await authService.signup(data)
+            await authService.signup({ name, email, password, majorId })
             res.redirect("/login")
         } catch {
             const majors = await majorService.getAllMajors()
             res.render("auth/signup", {
                 majors,
+                name,
+                email,
+                majorId,
                 error: "Email já cadastrado ou dados inválidos.",
             })
         }

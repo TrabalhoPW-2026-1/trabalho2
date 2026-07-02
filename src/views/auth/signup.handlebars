@@ -5,23 +5,27 @@
   {{/if}}
   <form action="/signup" method="post">
     <div class="mb-3">
-      <label for="name" class="form-label">Nome</label>
-      <input type="text" class="form-control" id="name" name="name" required>
+      <label for="name" class="form-label">Nome Completo</label>
+      <input type="text" class="form-control" id="name" name="name" value="{{name}}" required>
     </div>
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" name="email" required>
+      <input type="email" class="form-control" id="email" name="email" value="{{email}}" required>
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">Senha</label>
       <input type="password" class="form-control" id="password" name="password" required minlength="6">
     </div>
     <div class="mb-3">
+      <label for="confirmPassword" class="form-label">Repetir Senha</label>
+      <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required minlength="6">
+    </div>
+    <div class="mb-3">
       <label for="majorId" class="form-label">Curso</label>
       <select class="form-select" id="majorId" name="majorId" required>
-        <option value="" disabled selected>Selecione um curso</option>
+        <option value="" disabled {{#unless majorId}}selected{{/unless}}>Selecione um curso</option>
         {{#each majors}}
-        <option value="{{id}}">{{name}}</option>
+        <option value="{{id}}" {{#if (eq id ../majorId)}}selected{{/if}}>{{name}}</option>
         {{/each}}
       </select>
     </div>
