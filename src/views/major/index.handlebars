@@ -21,13 +21,65 @@
         <td>
           <a href="/major/read/{{this.id}}" class="btn btn-sm btn-info">Ver</a>
           <a href="/major/update/{{this.id}}" class="btn btn-sm btn-warning">Editar</a>
-          <form action="/major/delete/{{this.id}}" method="post" class="d-inline"
-            onsubmit="return confirm('Excluir {{this.name}}?')">
-            <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
-          </form>
+          <button type="button" class="btn btn-sm btn-danger btn-delete"
+            data-bs-toggle="modal" data-bs-target="#deleteModal"
+            data-id="{{this.id}}" data-name="{{this.name}}">Excluir</button>
         </td>
       </tr>
       {{/each}}
     </tbody>
   </table>
 </div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar exclusão</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Excluir <strong id="deleteName"></strong>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirmDelete">Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    let targetId = null;
+    let targetRow = null;
+
+    document.querySelectorAll(".btn-delete").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        // ao clicar no botão de excluir, armazenamos o id e a linha da tabela
+        targetId = btn.dataset.id;
+        targetRow = btn.closest("tr");
+        document.getElementById("deleteName").textContent = btn.dataset.name;
+      });
+    });
+
+    document.getElementById("confirmDelete").addEventListener("click", async function () {
+      if (!targetId) return;
+      try {
+        const res = await fetch("/major/delete/" + targetId, { method: "POST" });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          if (targetRow) targetRow.remove();
+        } else {
+          alert("Erro ao excluir");
+        }
+      } catch (e) {
+        alert("Erro ao excluir");
+      } finally {
+        bootstrap.Modal.getInstance(document.getElementById("deleteModal")).hide();
+        targetId = null;
+        targetRow = null;
+      }
+    });
+  })();
+</script>
