@@ -14,7 +14,7 @@ async function signup(data: SignUpDTO): Promise<User> {
     const salt = await bcrypt.genSalt(env.BCRYPT_ROUNDS)
     // const password = await bcrypt.hash(data.password, salt)
     const hash = await bcrypt.hash(data.password, salt)
-    return prisma.user.create({ data: { ...data, hash } })
+    return prisma.user.create({ data: { ...data, password: hash } })
 }
 
 // Dummy hash prevents timing attacks: attacker can't tell if user exists by response time
