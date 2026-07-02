@@ -11,13 +11,23 @@ function getGameSessionsFromUserId(userId: string) {
         where: { userId } });
 }
 
-function getTopGameSessions(limit: number) {
-    return prisma.gameSession.groupBy({
+async function getRanking(limit: number) {
+    const top = await prisma.gameSession.groupBy({
         by: ['userId'],
         _max: { score: true },
         orderBy: { _max: { score: 'desc' } },
         take: limit,
     });
+    const users = await prisma.user.findMany({
+        where: { id: { in: top.map((t) => t.userId) } },
+        select: { id: true, name: true },
+    });
+    const nameById = new Map(users.map((u) => [u.id, u.name]));
+    return top.map((t, i) => ({
+        position: i + 1,
+        name: nameById.get(t.userId) ?? t.userId,
+        score: t._max.score ?? 0,
+    }));
 }
 
 function readGameSession(id: string) {
@@ -46,7 +56,7 @@ function deleteGameSessionsForUserId(userId: string) {
 export default {
     getAllGameSessions,
     getGameSessionsFromUserId,
-    getTopGameSessions,
+    getRanking,
     readGameSession,
     createGameSession,
     updateGameSession,
