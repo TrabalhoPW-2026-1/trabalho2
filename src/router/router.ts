@@ -10,6 +10,7 @@ const router = Router();
 
 router.get("/", mainController.home);
 router.get("/about", mainController.about);
+router.get("/ranking", mainController.ranking);
 router.get(/^\/(api|rest)\/.+$/, mainController.api);
 router.get("/usr/:name", mainController.user);
 router.get("/search", mainController.search);
