@@ -29,8 +29,8 @@ app.set("views", path.join(process.cwd(), "src", "views"));
 
 // app.use(morgan("combined"));
 app.use(logger(env.LOGGER_TYPE, env.LOGGER_OUTPUT));
-
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(cookieParser());
 

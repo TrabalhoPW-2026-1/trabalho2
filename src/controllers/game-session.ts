@@ -10,7 +10,8 @@ const index = async (req: Request, res: Response) => {
 
 const create = async (req: Request, res: Response) => {
     if (req.method === "GET") {
-        res.render("game-session/create");
+        // res.render("game-session/create");
+        res.status(405).send("Method Not Allowed");
     } else if (req.method === "POST") {
         // res.send(JSON.stringify(req.body, null, 2));
         const gameSessionData: CreateGameSessionDTO = req.body;
@@ -18,6 +19,7 @@ const create = async (req: Request, res: Response) => {
             await gameSession.createGameSession(gameSessionData);
             res.redirect("/game-session");
         } catch (error) {
+            console.error("Error creating game session:", error);
             res.status(500).send(error);
         }
     }
