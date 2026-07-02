@@ -4,7 +4,7 @@ import { LoremIpsum } from "lorem-ipsum";
 import type { Professor, Technology } from "../views/helpers/helper.ts";
 import gameSession from "../services/game-session.ts";
 
-const loremIpsum = new LoremIpsum();
+const loremIpsum = new LoremIpsum(undefined, "html");
 
 const home = (req: Request, res: Response) => {
     res.redirect("/game/play");
