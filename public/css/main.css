@@ -3,4 +3,8 @@ h1, h2 {
   margin-top: 4px;
 }
 
+.navbar.fixed-top {
+  z-index: 100000;
+}
+
 /*# sourceMappingURL=main.css.map */

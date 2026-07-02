@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "esnext",
+    "rootDir": ".",
+    "outDir": "../public/game/js",
+    "strict": true
+  },
+  "include": ["./**/*.ts"]
+}

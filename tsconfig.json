@@ -45,4 +45,5 @@
     "rewriteRelativeImportExtensions": true
     // "noEmit": true
   },
+  "exclude": ["game-client"]
 }

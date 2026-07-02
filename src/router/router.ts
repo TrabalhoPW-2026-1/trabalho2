@@ -5,6 +5,7 @@ import majorController from "../controllers/major.ts";
 import authController from "../controllers/auth.ts"
 import gameSessionController from "../controllers/game-session.ts"
 import gameController from "../controllers/game.ts"
+import requireAuth from "../middlewares/requireAuth.ts"
 
 const router = Router();
 
@@ -40,6 +41,7 @@ router.all("/signup", authController.signup);
 router.all("/login", authController.login);
 router.post("/logout", authController.logout);
 
-router.get("/game/play", gameController.play)
+router.get("/game/play", requireAuth, gameController.play)
+router.post("/game/score", requireAuth, gameController.saveScore)
 
 export default router;

@@ -1,1 +1,41 @@
-<p>start!</p>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/game/css/style.css">
+
+<div id="pizza-game">
+  <div id="menu">
+    <h1>🍕 Pizza Delivery</h1>
+    <p id="menu-highscore"></p>
+    <form id="menu-form">
+      <fieldset class="difficulty-group">
+        <legend>Dificuldade</legend>
+
+        <label class="difficulty-option">
+          <input type="radio" name="difficulty" value="easy" checked />
+          <span>Fácil</span>
+        </label>
+
+        <label class="difficulty-option">
+          <input type="radio" name="difficulty" value="medium" />
+          <span>Médio</span>
+        </label>
+
+        <label class="difficulty-option">
+          <input type="radio" name="difficulty" value="hard" />
+          <span>Difícil</span>
+        </label>
+      </fieldset>
+
+      <button id="menu-play" type="button">Jogar</button>
+    </form>
+  </div>
+  <div id="gameover">
+    <h1>GAME OVER</h1>
+    <p id="gameover-message"></p>
+    <p id="gameover-score"></p>
+    <button id="gameover-restart">Jogar Novamente</button>
+  </div>
+  <div id="road"></div>
+</div>
+<script type="module" src="/game/js/main.js"></script>
