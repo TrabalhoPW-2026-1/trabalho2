@@ -38,6 +38,7 @@ export type GameSessionMinAggregateOutputType = {
   id: string | null
   userId: string | null
   score: number | null
+  difficulty: $Enums.Difficulty | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -46,6 +47,7 @@ export type GameSessionMaxAggregateOutputType = {
   id: string | null
   userId: string | null
   score: number | null
+  difficulty: $Enums.Difficulty | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -54,6 +56,7 @@ export type GameSessionCountAggregateOutputType = {
   id: number
   userId: number
   score: number
+  difficulty: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -72,6 +75,7 @@ export type GameSessionMinAggregateInputType = {
   id?: true
   userId?: true
   score?: true
+  difficulty?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -80,6 +84,7 @@ export type GameSessionMaxAggregateInputType = {
   id?: true
   userId?: true
   score?: true
+  difficulty?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -88,6 +93,7 @@ export type GameSessionCountAggregateInputType = {
   id?: true
   userId?: true
   score?: true
+  difficulty?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -183,6 +189,7 @@ export type GameSessionGroupByOutputType = {
   id: string
   userId: string
   score: number
+  difficulty: $Enums.Difficulty
   createdAt: Date
   updatedAt: Date
   _count: GameSessionCountAggregateOutputType | null
@@ -214,6 +221,7 @@ export type GameSessionWhereInput = {
   id?: Prisma.StringFilter<"GameSession"> | string
   userId?: Prisma.StringFilter<"GameSession"> | string
   score?: Prisma.IntFilter<"GameSession"> | number
+  difficulty?: Prisma.EnumDifficultyFilter<"GameSession"> | $Enums.Difficulty
   createdAt?: Prisma.DateTimeFilter<"GameSession"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"GameSession"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -223,6 +231,7 @@ export type GameSessionOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   score?: Prisma.SortOrder
+  difficulty?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
@@ -236,6 +245,7 @@ export type GameSessionWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.GameSessionWhereInput | Prisma.GameSessionWhereInput[]
   userId?: Prisma.StringFilter<"GameSession"> | string
   score?: Prisma.IntFilter<"GameSession"> | number
+  difficulty?: Prisma.EnumDifficultyFilter<"GameSession"> | $Enums.Difficulty
   createdAt?: Prisma.DateTimeFilter<"GameSession"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"GameSession"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -245,6 +255,7 @@ export type GameSessionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   score?: Prisma.SortOrder
+  difficulty?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.GameSessionCountOrderByAggregateInput
@@ -261,6 +272,7 @@ export type GameSessionScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"GameSession"> | string
   userId?: Prisma.StringWithAggregatesFilter<"GameSession"> | string
   score?: Prisma.IntWithAggregatesFilter<"GameSession"> | number
+  difficulty?: Prisma.EnumDifficultyWithAggregatesFilter<"GameSession"> | $Enums.Difficulty
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"GameSession"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"GameSession"> | Date | string
 }
@@ -268,6 +280,7 @@ export type GameSessionScalarWhereWithAggregatesInput = {
 export type GameSessionCreateInput = {
   id?: string
   score: number
+  difficulty?: $Enums.Difficulty
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutGameSessionsInput
@@ -277,6 +290,7 @@ export type GameSessionUncheckedCreateInput = {
   id?: string
   userId: string
   score: number
+  difficulty?: $Enums.Difficulty
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -284,6 +298,7 @@ export type GameSessionUncheckedCreateInput = {
 export type GameSessionUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   score?: Prisma.IntFieldUpdateOperationsInput | number
+  difficulty?: Prisma.EnumDifficultyFieldUpdateOperationsInput | $Enums.Difficulty
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutGameSessionsNestedInput
@@ -293,6 +308,7 @@ export type GameSessionUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   score?: Prisma.IntFieldUpdateOperationsInput | number
+  difficulty?: Prisma.EnumDifficultyFieldUpdateOperationsInput | $Enums.Difficulty
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -301,6 +317,7 @@ export type GameSessionCreateManyInput = {
   id?: string
   userId: string
   score: number
+  difficulty?: $Enums.Difficulty
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -308,6 +325,7 @@ export type GameSessionCreateManyInput = {
 export type GameSessionUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   score?: Prisma.IntFieldUpdateOperationsInput | number
+  difficulty?: Prisma.EnumDifficultyFieldUpdateOperationsInput | $Enums.Difficulty
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -316,6 +334,7 @@ export type GameSessionUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   score?: Prisma.IntFieldUpdateOperationsInput | number
+  difficulty?: Prisma.EnumDifficultyFieldUpdateOperationsInput | $Enums.Difficulty
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -340,6 +359,7 @@ export type GameSessionCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   score?: Prisma.SortOrder
+  difficulty?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -352,6 +372,7 @@ export type GameSessionMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   score?: Prisma.SortOrder
+  difficulty?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -360,6 +381,7 @@ export type GameSessionMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   score?: Prisma.SortOrder
+  difficulty?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -418,9 +440,14 @@ export type IntFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type EnumDifficultyFieldUpdateOperationsInput = {
+  set?: $Enums.Difficulty
+}
+
 export type GameSessionCreateWithoutUserInput = {
   id?: string
   score: number
+  difficulty?: $Enums.Difficulty
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -428,6 +455,7 @@ export type GameSessionCreateWithoutUserInput = {
 export type GameSessionUncheckedCreateWithoutUserInput = {
   id?: string
   score: number
+  difficulty?: $Enums.Difficulty
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -465,6 +493,7 @@ export type GameSessionScalarWhereInput = {
   id?: Prisma.StringFilter<"GameSession"> | string
   userId?: Prisma.StringFilter<"GameSession"> | string
   score?: Prisma.IntFilter<"GameSession"> | number
+  difficulty?: Prisma.EnumDifficultyFilter<"GameSession"> | $Enums.Difficulty
   createdAt?: Prisma.DateTimeFilter<"GameSession"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"GameSession"> | Date | string
 }
@@ -472,6 +501,7 @@ export type GameSessionScalarWhereInput = {
 export type GameSessionCreateManyUserInput = {
   id?: string
   score: number
+  difficulty?: $Enums.Difficulty
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -479,6 +509,7 @@ export type GameSessionCreateManyUserInput = {
 export type GameSessionUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   score?: Prisma.IntFieldUpdateOperationsInput | number
+  difficulty?: Prisma.EnumDifficultyFieldUpdateOperationsInput | $Enums.Difficulty
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -486,6 +517,7 @@ export type GameSessionUpdateWithoutUserInput = {
 export type GameSessionUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   score?: Prisma.IntFieldUpdateOperationsInput | number
+  difficulty?: Prisma.EnumDifficultyFieldUpdateOperationsInput | $Enums.Difficulty
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -493,6 +525,7 @@ export type GameSessionUncheckedUpdateWithoutUserInput = {
 export type GameSessionUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   score?: Prisma.IntFieldUpdateOperationsInput | number
+  difficulty?: Prisma.EnumDifficultyFieldUpdateOperationsInput | $Enums.Difficulty
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -503,6 +536,7 @@ export type GameSessionSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   id?: boolean
   userId?: boolean
   score?: boolean
+  difficulty?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -514,11 +548,12 @@ export type GameSessionSelectScalar = {
   id?: boolean
   userId?: boolean
   score?: boolean
+  difficulty?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type GameSessionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "score" | "createdAt" | "updatedAt", ExtArgs["result"]["gameSession"]>
+export type GameSessionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "score" | "difficulty" | "createdAt" | "updatedAt", ExtArgs["result"]["gameSession"]>
 export type GameSessionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -532,6 +567,7 @@ export type $GameSessionPayload<ExtArgs extends runtime.Types.Extensions.Interna
     id: string
     userId: string
     score: number
+    difficulty: $Enums.Difficulty
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["gameSession"]>
@@ -907,6 +943,7 @@ export interface GameSessionFieldRefs {
   readonly id: Prisma.FieldRef<"GameSession", 'String'>
   readonly userId: Prisma.FieldRef<"GameSession", 'String'>
   readonly score: Prisma.FieldRef<"GameSession", 'Int'>
+  readonly difficulty: Prisma.FieldRef<"GameSession", 'Difficulty'>
   readonly createdAt: Prisma.FieldRef<"GameSession", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"GameSession", 'DateTime'>
 }

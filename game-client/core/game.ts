@@ -96,7 +96,7 @@ export class Game {
     fetch("/game/score", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ score }),
+      body: JSON.stringify({ score, difficulty }),
     }).catch(() => {});
 
     setTimeout(() => {

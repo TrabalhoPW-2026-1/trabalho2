@@ -139,8 +139,17 @@ const hb4 = (req: Request, res: Response) => {
 };
 
 const ranking = async (req: Request, res: Response) => {
-    const ranking = await gameSession.getRanking(10);
-    res.render("ranking", { ranking });
+    const [easy, medium, hard] = await Promise.all([
+        gameSession.getRanking(10, "easy"),
+        gameSession.getRanking(10, "medium"),
+        gameSession.getRanking(10, "hard"),
+    ]);
+    const difficulties = [
+        { key: "easy", label: "Fácil", active: true, ranking: easy },
+        { key: "medium", label: "Médio", active: false, ranking: medium },
+        { key: "hard", label: "Difícil", active: false, ranking: hard },
+    ];
+    res.render("ranking", { difficulties });
 };
 
 export default {

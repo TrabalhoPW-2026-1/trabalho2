@@ -1,4 +1,5 @@
 import prisma from "../utils/prismaClient.ts";
+import type { Difficulty } from "../../generated/prisma/enums.ts";
 import type {CreateGameSessionDTO, UpdateGameSessionDTO} from "../types/game-session.ts";
 
 
@@ -11,9 +12,10 @@ function getGameSessionsFromUserId(userId: string) {
         where: { userId } });
 }
 
-async function getRanking(limit: number) {
+async function getRanking(limit: number, difficulty: Difficulty) {
     const top = await prisma.gameSession.groupBy({
         by: ['userId'],
+        where: { difficulty },
         _max: { score: true },
         orderBy: { _max: { score: 'desc' } },
         take: limit,

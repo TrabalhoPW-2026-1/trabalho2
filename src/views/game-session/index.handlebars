@@ -8,6 +8,7 @@
       <tr>
         <th>Usuário</th>
         <th>Pontuação</th>
+        <th>Dificuldade</th>
         <th>Opções</th>
       </tr>
     </thead>
@@ -16,6 +17,7 @@
       <tr>
         <td>{{this.user.name}}</td>
         <td>{{this.score}}</td>
+        <td>{{this.difficulty}}</td>
         <td>
           <a href="/game-session/read/{{this.id}}" class="btn btn-sm btn-info">Ver</a>
           <a href="/game-session/update/{{this.id}}" class="btn btn-sm btn-warning">Editar</a>

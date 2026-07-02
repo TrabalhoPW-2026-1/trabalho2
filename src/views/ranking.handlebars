@@ -1,25 +1,43 @@
 <div class="container mt-4" style="max-width: 600px">
   <h2 class="mb-4">Ranking</h2>
-  <table class="table table-hover table-bordered">
-    <thead class="table-dark">
-      <tr>
-        <th>#</th>
-        <th>Usuário</th>
-        <th>Pontuação</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each ranking}}
-      <tr>
-        <td>{{this.position}}</td>
-        <td>{{this.name}}</td>
-        <td>{{this.score}}</td>
-      </tr>
-      {{else}}
-      <tr>
-        <td colspan="3" class="text-center">Nenhuma pontuação registrada.</td>
-      </tr>
-      {{/each}}
-    </tbody>
-  </table>
+
+  <ul class="nav nav-tabs" role="tablist">
+    {{#each difficulties}}
+    <li class="nav-item" role="presentation">
+      <button class="nav-link {{#if this.active}}active{{/if}}" id="tab-{{this.key}}" data-bs-toggle="tab"
+        data-bs-target="#pane-{{this.key}}" type="button" role="tab" aria-controls="pane-{{this.key}}"
+        aria-selected="{{this.active}}">{{this.label}}</button>
+    </li>
+    {{/each}}
+  </ul>
+
+  <div class="tab-content border border-top-0 p-3">
+    {{#each difficulties}}
+    <div class="tab-pane fade {{#if this.active}}show active{{/if}}" id="pane-{{this.key}}" role="tabpanel"
+      aria-labelledby="tab-{{this.key}}">
+      <table class="table table-hover table-bordered mb-0">
+        <thead class="table-dark">
+          <tr>
+            <th>#</th>
+            <th>Usuário</th>
+            <th>Pontuação</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each this.ranking}}
+          <tr>
+            <td>{{this.position}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.score}}</td>
+          </tr>
+          {{else}}
+          <tr>
+            <td colspan="3" class="text-center">Nenhuma pontuação registrada.</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    {{/each}}
+  </div>
 </div>

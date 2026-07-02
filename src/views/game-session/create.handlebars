@@ -14,6 +14,14 @@
       <label for="score" class="form-label">Pontuação</label>
       <input type="number" class="form-control" id="score" name="score" min="0" required>
     </div>
+    <div class="mb-3">
+      <label for="difficulty" class="form-label">Dificuldade</label>
+      <select class="form-select" id="difficulty" name="difficulty" required>
+        <option value="easy" selected>Fácil</option>
+        <option value="medium">Médio</option>
+        <option value="hard">Difícil</option>
+      </select>
+    </div>
     <div class="d-flex gap-2">
       <button type="submit" class="btn btn-primary">Salvar</button>
       <a href="/game-session" class="btn btn-secondary">Cancelar</a>

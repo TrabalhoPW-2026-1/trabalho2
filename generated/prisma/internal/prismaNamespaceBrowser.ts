@@ -101,6 +101,7 @@ export const GameSessionScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
   score: 'score',
+  difficulty: 'difficulty',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
