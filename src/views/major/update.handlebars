@@ -3,7 +3,7 @@
   <form action="/major/update/{{major.id}}" method="post">
     <div class="mb-3">
       <label for="code" class="form-label">Código</label>
-      <input type="text" class="form-control" id="code" name="code" value="{{major.code}}" required>
+      <input type="text" class="form-control" id="code" name="code" value="{{major.code}}" maxlength="4" required>
     </div>
     <div class="mb-3">
       <label for="name" class="form-label">Nome</label>
