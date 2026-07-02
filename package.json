@@ -7,6 +7,8 @@
   "scripts": {
     "sass": "sass public/scss:public/css --watch",
     "start": "docker compose up -d && nodemon --exec tsx src/index.ts",
+    "deploy": "tsc",
+    "start:prod": "NODE_ENV=production node build/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
