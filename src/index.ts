@@ -29,7 +29,7 @@ app.set("view engine", "handlebars");
 app.set("views", path.join(process.cwd(), "src", "views"));
 
 // app.use(morgan("combined"));
-app.use(logger(env.LOGGER_TYPE, env.LOGGER_OUTPUT));
+app.use(logger(env.LOGGER_TYPE, env.LOGS_PATH));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
