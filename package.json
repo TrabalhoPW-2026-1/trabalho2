@@ -8,7 +8,7 @@
     "sass": "sass public/scss:public/css --watch",
     "build:game": "tsc -p game-client/tsconfig.json",
     "watch:game": "tsc -p game-client/tsconfig.json --watch",
-    "start": "npm run build:game && docker compose up -d && nodemon --exec tsx src/index.ts",
+    "start": "npm run build:game && docker compose up -d && npx nodemon --exec tsx src/index.ts",
     "deploy": "npm run build:game && tsc",
     "start:prod": "NODE_ENV=production node build/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
