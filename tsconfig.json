@@ -45,5 +45,6 @@
     "rewriteRelativeImportExtensions": true
     // "noEmit": true
   },
-  "exclude": ["game-client"]
+  "include": ["src"],
+  "exclude": ["game-client", "generated", "build", "node_modules"]
 }
